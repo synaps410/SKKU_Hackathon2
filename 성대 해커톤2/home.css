@@ -1,0 +1,295 @@
+/* 폰트 import */
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nixie+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+
+/* 영역 넘어가는 것 방지용 코드 */
+/* 그러나 웹 뷰에서는 되나 앱 실행화면에서는 적용이 안됨 개같은거 */
+/* body{
+    overflow: hidden;
+    touch-action: none;
+    position: fixed;
+} */
+
+
+
+/* ======================================================= */
+/* home page */
+
+/* 기본 박스 css */
+.container{
+    background: linear-gradient(180deg, #FFFFFF 29.69%, #C9FFEB 83.85%, #BBEBFF 100%);
+    height: 812px;
+    /* border: solid 1px black; */
+    /* padding: 0px; */
+    position: relative;
+}
+
+
+/* 상단 메뉴 바 */
+#upperbar{
+    margin-top: 49px;
+    margin-left: 18px;
+    margin-right: 18px;
+}
+
+#lefticons{
+    text-align: right;
+    padding-right: 0px;
+}
+
+#chart{
+    padding-left: 0px;
+}
+
+/* 년/월 메뉴 기본 css */
+#date{
+    margin-top: 17px;
+    margin-left: 18px;
+    margin-right: 18px;
+    margin-bottom: 43px;
+}
+
+#previous{
+    padding-top: 13px;
+    padding-left: 0px;
+}
+
+#next{
+    text-align: right;
+    padding-top: 13px;
+    /* 0px로 하면 약간 튀어나와 보여서 미세조정 */
+    padding-right: 1.7px;
+}
+
+#year{
+    font-family: 'Julius Sans One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 78.1%;
+    color: #606060;
+    letter-spacing: 0.07em;
+}
+
+#month{
+    font-family: 'Julius Sans One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 31.24px;
+    letter-spacing: 0.07em;
+    color: #000000;
+}
+
+/* 구슬 진열장 css */
+#insideout{
+    margin-top: 21px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+#ball{
+    padding: 0px;
+    text-align: center;
+}
+
+#add{
+    position: absolute;
+    bottom: 29px;
+}
+
+/* ======================================================= */
+/* create page */
+
+/* 빈 공 화면 */
+#hallowball{
+    position: absolute;
+    bottom: 333.45px;
+}
+
+/* 진부한 멘트 1 */
+#ments{
+    position: absolute;
+    top: 257px;
+    font-family: 'Noto Sans KR';
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 14.06px;
+    letter-spacing: 7%;
+    text-align: center;
+    color: #838383;
+}
+
+#ment2{
+    display: none;
+}
+
+#ment3{
+    display: none;
+}
+
+/* 메뉴 버튼 */
+nav{
+    height: 65px;
+    width: 65px;
+}
+
+
+/* 메뉴 애니메이션 효과 */
+.select {
+    position: absolute;
+    display: block;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    margin:auto;
+    width:40px;
+    height:40px;
+    z-index:2;
+    opacity:0;
+    cursor:pointer;
+  }
+  .select:hover + label,
+  .select:hover + label:before,
+  .select:hover + label:after,{
+    background: white;
+  }
+  .select:checked + label {
+    background: transparent;
+  }
+  .select:checked + label:before,
+  .select:checked + label:after,{
+    top:0;
+    width:40px;
+    transform-origin: 50% 50%;
+  }
+  .select:checked + label:before {
+    transform: rotate(45deg) translateY(-15px) translateX(-15px);
+  }
+  .select:checked + label:after {
+    transform: rotate(-45deg);
+  }
+  .select:checked ~ ul .menu-item { 
+    opacity: 1;
+  }
+  .select:checked ~ ul .menu-item:nth-child(1) {
+    transform: rotate(5deg) translate(-110px);
+  }
+  .select:checked ~ ul .menu-item:nth-child(2) {
+    transform: rotate(47.5deg) translateX(-110px);
+  }
+  .select:checked ~ ul .menu-item:nth-child(3) {
+    transform: rotate(90deg) translateX(-110px);
+  }
+  .select:checked ~ ul .menu-item:nth-child(4) {
+    transform: rotate(132.5deg) translateX(-110px);
+  }
+  .select:checked ~ ul .menu-item:nth-child(5) {
+    transform: rotate(175deg) translateX(-110px);
+  }
+  /* .select:checked ~ ul .menu-item:nth-child(6) {
+    transform: rotate(300deg) translateX(-110px);
+  } */
+  .select:checked ~ ul .menu-item p {
+    pointer-events:auto;
+  }
+  .select + label {
+    width: 65px;
+    height: 65px;
+    display: block;
+    /* border-radius: 2.5px; */
+    /* transition: transform 0.5s top 0.5s; */
+    background-image: url(/img/addbtn.png);
+  }
+  .select + label,
+  .select + label:after {
+    width: 65px;
+    height: 65px;
+    display: block;
+    background-image: url(/img/addbtn.png);
+    z-index: 1;
+    transition: transform 0.5s top 0.5s;
+    /* 왜 content: ""를 써야 실행되는지 도무지 알 수 없음 */
+    content: "";
+    position: absolute;
+    display: block;
+  }
+  .select + label:before {
+    top: 10px;
+  }
+  
+  
+  .menu-item:nth-child(1) p {
+    transform: rotate(-5deg);
+  }
+  .menu-item:nth-child(2) p {
+    transform: rotate(-47.5deg);
+  }
+  .menu-item:nth-child(3) p {
+    transform: rotate(-90deg);
+  }
+  .menu-item:nth-child(4) p {
+    transform: rotate(-132.5deg);
+  }
+  .menu-item:nth-child(5) p {
+    transform: rotate(-175deg);
+  }
+  /* .menu-item:nth-child(6) a {
+    transform: rotate(-300deg);
+  } */
+
+  .menu-item {
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 70px;
+    height: 70px;
+    opacity: 0;
+    transition: 0.5s;
+  }
+  .menu-item p {
+    display: block;
+    width: 70px;
+    height: 70px;
+    /* line-height: 80px; */
+    /* color: rgba(255, 255, 255, 0.7); */
+    background: rgba(230, 230, 250, 0.7);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 15px;
+    transition: 0.2s;
+    font-family: 'Nixie One';
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0.07em;
+    padding-top: 29px;
+  }
+
+  /* 메뉴 감정 색 */
+  #color1{
+    background-color: #E8F8C8;
+  }
+  #color2{
+    background-color: #78BFE8;
+  }
+  #color3{
+    background-color: #ECACB8;
+  }
+  #color4{
+    background-color: #CBD2FD;
+  }
+  #color5{
+    background-color: #9ED6C0;
+  }
+
+  /* 메뉴 hover시 효과 */
+  .menu-item p:target {
+    cursor: pointer;
+    border: 5px solid white;
+  }
